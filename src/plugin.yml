@@ -1,0 +1,69 @@
+main: me.myrmylios.chase.Main
+name: Chase
+version: 1.0
+commands:
+  chase:
+   description: The command for all plugin related subcommands
+   permission: Chase.chase
+   permission-message: You are not allowed to use this command
+
+permissions:
+  Chase.*:
+   description: All chase commands
+   children:
+    Chase.locations.*: true
+    Chase.game.*: true
+  Chase.locations.*:
+   description: Access to all location based commands
+   children:
+    Chase.locations.setspawn: true
+    Chase.locations.setchasedwarp: true
+    Chase.locations.sethunterwarp: true
+    Chase.chase: true
+  Chase.locations.setspawn:
+   description: Access to the setspawn command
+   children:
+    Chase.chase: true
+  Chase.locations.setchasedwarp:
+   description: Access to the setchasedwarp command
+   children:
+    Chase.chase: true
+  Chase.locations.sethunterwarp:
+   description: Access to the sethunterwarp command
+   children:
+    Chase.chase: true
+  Chase.game.*:
+   description: Access to all game based commands
+   children:
+    Chase.game.start: true
+    Chase.game.stop: true
+    Chase.game.games: true
+    Chase.game.create: true
+    Chase.game.delete: true
+    Chase.chase: true
+  Chase.game.start:
+   description: Access to the start command
+   children:
+    Chase.chase: true
+  Chase.game.stop:
+   description: Access to the stop command
+   children:
+    Chase.chase: true
+  Chase.game.create:
+   description: Allows the creation of new games.
+   children:
+    Chase.chase: true
+  Chase.game.delete:
+   description: Allows the deletion of existing games.
+   children:
+    Chase.chase: true
+  Chase.game.games:
+   description: Access to the games command
+   children:
+    Chase.chase: true
+  Chase.commandlist:
+   description: Access to the commandlist belonging to this plugin
+   children:
+    Chase.chase: true
+   default: op
+   
